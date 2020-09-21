@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using BullkyBook.DataAccess.Repository.IRepository;
 using BullkyBook.Models;
 using BullkyBook.Models.ViewModels;
+using BullkyBook.Utillities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -14,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace BulkyBook.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
